@@ -1,4 +1,4 @@
-import { COLORCHANGED } from "./actionTypes"
+import { COLORCHANGED, STATUSCHANGED } from "./actionTypes"
 
 export const colorChanged=(color, changeType)=>{
     return {
@@ -13,7 +13,7 @@ export const colorChanged=(color, changeType)=>{
 
 export const statusChanged=(status)=>{
     return {
-        type:COLORCHANGED,
+        type:STATUSCHANGED,
         playload:{
             status
         }
