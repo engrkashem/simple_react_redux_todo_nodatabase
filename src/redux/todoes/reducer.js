@@ -38,7 +38,7 @@ const reducer=(state=initialState, action)=>{
                 }
 
                 return{
-                    ...state,
+                    ...todo,
                     color: color
                 }
             });
