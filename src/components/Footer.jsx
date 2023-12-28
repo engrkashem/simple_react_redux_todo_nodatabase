@@ -15,10 +15,10 @@ const numberOfTodoesTextFormatter = (no_of_todoes) => {
 };
 
 const Footer = () => {
-  const todoes = useSelector((state) => state.todoes);
+  const todos = useSelector((state) => state.todos);
   const filters = useSelector((state) => state.filters);
   const dispatch = useDispatch();
-  const taskLeft = todoes.filter((todo) => !todo.completed);
+  const taskLeft = todos.filter((todo) => !todo.completed);
 
   const { status, colors } = filters;
 

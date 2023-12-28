@@ -4,7 +4,7 @@ import {combineReducers} from 'redux';
 
 
 const rootReducer=combineReducers({
-    todoes:todoReducer,
+    todos:todoReducer,
     filters:filterReducer
 })
 

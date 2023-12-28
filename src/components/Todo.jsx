@@ -1,6 +1,9 @@
 import { useDispatch } from "react-redux";
 import cancel from "../assets/images/cancel.png";
-import { colorSelected, deleted, toggled } from "../redux/todoes/actions";
+// import { colorSelected, deleted, toggled } from "../redux/todoes/actions";
+import updateTodoStatus from "../redux/todoes/thunk/updateTodoStatus";
+import updateTodoColor from "../redux/todoes/thunk/updateTodoColor";
+import deleteTodo from "../redux/todoes/thunk/deleteTodo";
 
 const Todo = ({ todo }) => {
   const dispatch = useDispatch();
@@ -9,15 +12,15 @@ const Todo = ({ todo }) => {
   const line_through = completed ? "line-through" : "";
 
   const completedStatusChangeHandler = (todoId) => {
-    dispatch(toggled(todoId));
+    dispatch(updateTodoStatus(todoId, completed));
   };
 
   const colorStatusChangeHandler = (todoId, color) => {
-    dispatch(colorSelected(todoId, color));
+    dispatch(updateTodoColor(todoId, color));
   };
 
   const deleteTodoHandler = (todoId) => {
-    dispatch(deleted(todoId));
+    dispatch(deleteTodo(todoId));
   };
 
   return (

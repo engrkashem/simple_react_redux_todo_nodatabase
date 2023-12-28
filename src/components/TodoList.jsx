@@ -1,10 +1,20 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Todo from "./Todo";
+import { useEffect } from "react";
+import fetchTodos from "../redux/todoes/thunk/fetchTodos";
 // import { useEffect, useState } from "react";
 
 const TodoList = () => {
-  const todoes = useSelector((state) => state.todoes);
+  const todos = useSelector((state) => state.todos);
   const filters = useSelector((state) => state.filters);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTodos);
+  }, [dispatch]);
+
+  /**
+  
   // const [renderableTodoes, setRenderableTodoes] = useState([]);
 
   // useEffect(() => {
@@ -14,6 +24,8 @@ const TodoList = () => {
   //     setRenderableTodoes(todoes.filter((todo) => !todo.completed));
   //   } else setRenderableTodoes(todoes);
   // }, [filters, todoes]);
+
+   */
 
   const filterByStatus = (todo) => {
     const { status } = filters;
@@ -39,7 +51,7 @@ const TodoList = () => {
 
   return (
     <div className="mt-2 text-gray-700 text-sm max-h-[300px] overflow-y-auto">
-      {todoes
+      {todos
         .filter(filterByStatus)
         .filter(filterByColors)
         .map((todo) => (

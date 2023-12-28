@@ -3,7 +3,8 @@ import doubleTik from "../assets/images/double-tick.png";
 import plusImg from "../assets/images/plus.png";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { added, allCompleted, clearCompleted } from "../redux/todoes/actions";
+import { allCompleted, clearCompleted } from "../redux/todoes/actions";
+import addTodo from "../redux/todoes/thunk/addTodo";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const Header = () => {
 
   const addTodoHandler = (e) => {
     e.preventDefault();
-    dispatch(added(input));
+    dispatch(addTodo(input));
     setInput("");
   };
 
